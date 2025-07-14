@@ -4,16 +4,18 @@ This project explores and models trends in UK housing prices using real-world da
 
 ## Project Structure
 
+```bash
 .
-|-- README.md <br/>
-|-- data <br/>
-|   |-- processed.csv.gz <br/>
-|   `-- raw <br/>
-|       `-- uk-hpi.csv.gz <br/>
-|-- notebooks <br/>
-|   `-- EDA.ipynb              # EDA and modeling steps <br/>
-|-- requirements.txt <br/>
-`-- src <br/>
+|-- README.md 
+|-- data 
+|   |-- processed.csv.gz 
+|   `-- raw 
+|       `-- uk-hpi.csv.gz 
+|-- notebooks 
+|   `-- EDA.ipynb              # EDA and modeling steps 
+|-- requirements.txt 
+`-- src
+```
 
 ## Features
 
