@@ -5,15 +5,15 @@ This project explores and models trends in UK housing prices using real-world da
 ## Project Structure
 
 .
-|-- README.md
-|-- data
-|   |-- processed.csv.gz
-|   `-- raw
-|       `-- uk-hpi.csv.gz
-|-- notebooks
-|   `-- EDA.ipynb                # EDA and modeling steps
-|-- requirements.txt
-`-- src
+|-- README.md <br/>
+|-- data <br/>
+|   |-- processed.csv.gz <br/>
+|   `-- raw <br/>
+|       `-- uk-hpi.csv.gz <br/>
+|-- notebooks <br/>
+|   `-- EDA.ipynb              # EDA and modeling steps <br/>
+|-- requirements.txt <br/>
+`-- src <br/>
 
 ## Features
 
@@ -62,8 +62,8 @@ Raw data sourced from:
 - Add interactive dashboards with Plotly/Dash or Streamlit
 
 ## Author
-**Brandon Lodge**
-Computer Science with Artificial Intelligence Graduate | [LinkedIn](https://www.linkedin.com/in/brandon-lodge-6361401b8/)
+**Brandon Lodge** <br/>
+Computer Science with Artificial Intelligence Graduate | [LinkedIn](https://www.linkedin.com/in/brandon-lodge-6361401b8/) <br/>
 Open to work in Data Analysis, Machine Learning, or Research
 
 ## License
