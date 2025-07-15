@@ -62,6 +62,8 @@ Raw data sourced from:
 
 ## Next Steps
 
+- Fine-tune existing model
+- Try non-linear ensemble models and compare with linreg
 - Implement time-series models (ARIMA, Prophet)
 - Visualize forecasts on regional maps
 - Add interactive dashboards with Plotly/Dash or Streamlit
