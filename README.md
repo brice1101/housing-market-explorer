@@ -6,15 +6,19 @@ This project explores and models trends in UK housing prices using real-world da
 
 ```bash
 .
-|-- README.md 
-|-- data 
-|   |-- processed.csv.gz 
-|   `-- raw 
-|       `-- uk-hpi.csv.gz 
-|-- notebooks 
-|   `-- EDA.ipynb              # EDA and modeling steps 
-|-- requirements.txt 
+|-- README.md
+|-- data
+|   |-- processed.csv.gz
+|   `-- raw
+|       `-- uk-hpi.csv.gz
+|-- models
+|   `-- linear_model.pkl
+|-- notebooks
+|   |-- EDA.ipynb
+|   `-- modeling.ipynb
+|-- requirements.txt
 `-- src
+    `-- pipeline.py
 ```
 
 ## Features
@@ -58,7 +62,6 @@ Raw data sourced from:
 
 ## Next Steps
 
-- Perform baseline modeling and forecast price trends.
 - Implement time-series models (ARIMA, Prophet)
 - Visualize forecasts on regional maps
 - Add interactive dashboards with Plotly/Dash or Streamlit
