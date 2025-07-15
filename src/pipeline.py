@@ -27,25 +27,24 @@ df = df.dropna(subset=[TARGET_COL])
 X = df.drop(columns=[TARGET_COL])
 y = df[TARGET_COL]
 
-# Identify column types
-numerical_features = X.select_dtypes(include=['int64', 'float64']).columns.tolist()
-categorical_features = X.select_dtypes(include=['object', 'category'])
+# === Time-Based Split ===
+train_mask = X['Year'] < 2020
+test_mask = X['Year'] >= 2020
 
-# === Train/Test Split ===
-print("Splitting data...")
-X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=42)
+X_train, X_test = X[train_mask], X[test_mask]
+y_train, y_test = y[train_mask], y[test_mask]
 
 # === Preprocessing ===
 print("Building pipeline...")
 
-# Pipeline for numeric features
-numeric_pipeline = Pipeline([
-    ("imputer", SimpleImputer(strategy='mean')),
-    ("scaler", StandardScaler())])
+numeric_features = X.select_dtypes(include=["int64", "float64"]).columns.drop("Year", errors='ignore')
+
+numeric_transformer = Pipeline([
+    ("imputer", SimpleImputer(strategy='median')),
+    ('scaler', StandardScaler())])
 
 preprocessor = ColumnTransformer([
-    ("num", numeric_pipeline, numerical_features)])
+    ('num', numeric_transformer, numeric_features)])
 
 # === Full Model Pipeline ===
 model_pipeline = Pipeline([
