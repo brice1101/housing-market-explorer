@@ -15,7 +15,8 @@ This project explores and models trends in UK housing prices using real-world da
 |-- models
 |-- notebooks
 |   |-- EDA.ipynb
-|   `-- modeling.ipynb
+|   |-- model_comparison.ipynb
+|   `-- rf_tuning.ipynb
 |-- requirements.txt
 `-- src
     |-- pipeline_lasso.py
@@ -95,7 +96,10 @@ Raw data sourced from:
 
 ## Next Steps
 
-- Try non-linear ensemble models and compare with linreg
+- Revisit feature engineering
+- Try XGBoost and LightBGM
+- Try Cross-validation instead of year split
+- Try ensembling (e.g., Ridge + Random Forest)
 - Implement time-series models (ARIMA, Prophet)
 - Visualize forecasts on regional maps
 - Add interactive dashboards with Plotly/Dash or Streamlit
