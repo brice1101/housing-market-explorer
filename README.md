@@ -6,22 +6,53 @@ This project explores and models trends in UK housing prices using real-world da
 
 ```bash
 
+.
 |-- README.md
 |-- data
 |   |-- processed.csv.gz
 |   `-- raw
 |       `-- uk-hpi.csv.gz
 |-- models
-|   |-- linear_model_v1.pkl
-|   `-- ridge_model.pkl
 |-- notebooks
 |   |-- EDA.ipynb
 |   `-- modeling.ipynb
 |-- requirements.txt
 `-- src
+    |-- pipeline_lasso.py
     |-- pipeline_linear.py
-    `-- pipeline_ridge.py
+    |-- pipeline_random_forest.py
+    |-- pipeline_ridge.py
+    |-- pipelines
+    |   |-- __pycache__
+    |   |   `-- base_pipeline.cpython-313.pyc
+    |   `-- base_pipeline.py
+    `-- utils
+        |-- __pycache__
+        |   `-- data_utils.cpython-313.pyc
+        `-- data_utils.py
+
 ```
+
+## Models
+
+Trained models are **not included in this repository** because of their large size. The ```/models/``` directory is excluded in ```.gitignore```.
+
+### To Train a Model
+
+You can train and save a model by running the appropriate pipeline script:
+
+```bash
+python src/pipeline_linear.py
+python src/pipeline_random_forest.py
+```
+
+Each script will save the trained model to:
+
+```bash
+/models/<model_name>.pkl
+```
+
+You can then use the model in analyses or notebooks.
 
 ## Features
 
