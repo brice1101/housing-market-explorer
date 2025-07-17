@@ -1,14 +1,13 @@
 import pandas as pd
 import numpy as np
 import os
-from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
-from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import StandardScaler
-from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score, mean_squared_error
 import joblib
+
+from pipelines.base_pipeline import build_preprocessor
+from utils.data_utils import load_data, split_by_year
 
 # === CONFIG ===
 CURR_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -18,33 +17,15 @@ MODEL_OUTPUT_PATH = os.path.join(CURR_PATH, '..', 'models', 'linear_model.pkl')
 
 # === Load Data ===
 print("Loading data...")
-df = pd.read_csv(DATA_PATH, compression='gzip')
-
-# === Drop rows with missing target ===
-df = df.dropna(subset=[TARGET_COL])
-
-# === Define Features ===
-X = df.drop(columns=[TARGET_COL])
-y = df[TARGET_COL]
+df = load_data(DATA_PATH, TARGET_COL)
 
 # === Time-Based Split ===
-train_mask = X['Year'] < 2020
-test_mask = X['Year'] >= 2020
-
-X_train, X_test = X[train_mask], X[test_mask]
-y_train, y_test = y[train_mask], y[test_mask]
+X_train, X_test, y_train, y_test = split_by_year(df, TARGET_COL, split_year=2020)
 
 # === Preprocessing ===
 print("Building pipeline...")
 
-numeric_features = X.select_dtypes(include=["int64", "float64"]).columns.drop("Year", errors='ignore')
-
-numeric_transformer = Pipeline([
-    ("imputer", SimpleImputer(strategy='median')),
-    ('scaler', StandardScaler())])
-
-preprocessor = ColumnTransformer([
-    ('num', numeric_transformer, numeric_features)])
+preprocessor = build_preprocessor(X_train)
 
 # === Full Model Pipeline ===
 model_pipeline = Pipeline([
