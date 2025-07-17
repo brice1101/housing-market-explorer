@@ -5,20 +5,22 @@ This project explores and models trends in UK housing prices using real-world da
 ## Project Structure
 
 ```bash
-.
+
 |-- README.md
 |-- data
 |   |-- processed.csv.gz
 |   `-- raw
 |       `-- uk-hpi.csv.gz
 |-- models
-|   `-- linear_model.pkl
+|   |-- linear_model_v1.pkl
+|   `-- ridge_model.pkl
 |-- notebooks
 |   |-- EDA.ipynb
 |   `-- modeling.ipynb
 |-- requirements.txt
 `-- src
-    `-- pipeline.py
+    |-- pipeline_linear.py
+    `-- pipeline_ridge.py
 ```
 
 ## Features
@@ -62,7 +64,6 @@ Raw data sourced from:
 
 ## Next Steps
 
-- Fine-tune existing model
 - Try non-linear ensemble models and compare with linreg
 - Implement time-series models (ARIMA, Prophet)
 - Visualize forecasts on regional maps
